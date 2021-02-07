@@ -44,5 +44,4 @@ def page_not_found(error):
     return send_file("{}/-1.png".format(avatar_dir))
 
 # Run the server
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+app.run(host="0.0.0.0", port=5000)
