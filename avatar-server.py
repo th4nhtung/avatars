@@ -18,8 +18,8 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
 avatar_dir = "a"  # no slash
 
 # create avatars directory if it does not exist
-if not os.path.exists(os.path.join(app.root_path, avatar_dir)):
-    os.makedirs(os.path.join(app.root_path, avatar_dir))
+if not os.path.exists(avatar_dir):
+    os.makedirs(avatar_dir)
 
 @app.route("/status")
 def serverStatus():
@@ -31,7 +31,7 @@ def serverStatus():
 @app.route("/<int:uid>")
 def serveAvatar(uid):
     # Check if avatar exists
-    if os.path.isfile(os.path.join(app.root_path, "{}/{}.png".format(avatar_dir, uid))):
+    if os.path.isfile("{}/{}.png".format(avatar_dir, uid)):
         avatarid = uid
     else:
         avatarid = -1
